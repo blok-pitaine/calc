@@ -1,0 +1,293 @@
+/*PAGE*/
+
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden;
+}
+
+#header{
+    background: rgba(255, 255, 255, 0.03);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: column;
+    min-height: 40px;
+    word-break: break-all;
+    overflow: hidden;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    cursor: text;
+    transition: border-color 0.2s ease;
+    user-select: text;
+    -webkit-user-select: text;
+    position: relative;
+}
+
+.header-button{
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 60px;
+    height: 100%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Контейнер калькулятора */
+#calculator {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Блок дисплея */
+#display {
+    background: rgba(255, 255, 255, 0.03);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-height: 95px;
+    word-break: break-all;
+    overflow: hidden;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    cursor: text;
+    transition: border-color 0.2s ease;
+    user-select: text;
+    -webkit-user-select: text;
+    position: relative;
+}
+
+#calculator-input {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    text-align: right;
+    width: 100%;
+    transition: font-size 0.2s ease;
+    user-select: text;
+    -webkit-user-select: text;
+    outline: none;
+    border: none;
+    background: transparent;
+    white-space: pre-wrap;
+    caret-color: #38bdf8;
+}
+
+#result {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.2;
+    text-align: right;
+    min-height: 30px;
+    margin-top: 4px;
+    width: 100%;
+    transition: font-size 0.2s ease;
+    user-select: text;
+    -webkit-user-select: text;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/*BUTTONS*/
+
+#base-panel {
+    flex-grow: 1;
+    display: grid;
+    height: 68vh;
+    overflow: hidden;
+    grid-template-columns: repeat(8, 1fr); /* 4 колонки равной ширины */
+    gap: 8px; /* Расстояние между кнопками */
+}
+
+#engineer-panel{
+    flex-grow: 1;
+    float: left;
+    display: grid;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-height: 50%;
+    height: 100%;
+    word-break: break-all;
+    overflow: auto;
+    width: 45%;
+    background-color: #333;
+    margin-right: 10px;
+    border-radius: 12px;
+    grid-template-columns: repeat(8, 1fr); /* 4 колонки равной ширины */
+    gap: 6px;
+}
+
+/* Стили кнопок */
+.calculator-button {
+    border: none;
+    border-radius: 9px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #e0e0e0;
+    color: #333;
+    grid-column: span 2;
+}
+
+.engineer-button {
+    border: none;
+    border-radius: 9px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #e0e0e0;
+    color: #333;
+    grid-column: span 2;
+}
+
+/* Эффект при наведении */
+.calculator-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.engineer-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Эффект при нажатии */
+.calculator-button:active {
+    transform: translateY(0);
+}
+
+@media(orientation: portrait){
+    #engineer-panel{
+        display: none !important;
+    }
+}
+
+/* Кнопка очистки (C) - оранжевая */
+#C {
+    background-color: #ff9f1c;
+}
+#C:hover {
+    background-color: #ffa534;
+}
+
+#bracketstart, #bracketend, #multiplication, #exponentiation{
+    grid-column: span 1;
+}
+
+/* Кнопки операций (+, -, *, /) - серые */
+#plus, #minus, #multiplication, #division, #bracketstart, #bracketend, #remainder, #exponentiation {
+    background-color: #ffbe0b; /* Желтый оттенок для операций */
+}
+#plus:hover, #minus:hover, #multiplication:hover, #division:hover, #brackets:hover, #remainder:hover {
+    background-color: #ffd639;
+}
+
+/* Кнопка равно (=) - зеленая */
+#calculate {
+    background-color: #0f3460;
+    color: wheat;
+}
+#calculate:hover {
+    background-color: #1a4a88;
+}
+
+#backspace{
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+#space{
+    grid-column: span 8;
+    display: fixed;
+    background-color: #555;
+    color: #f0f2f5;
+}
+
+/*History*/
+
+.history-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.history-screen.active {
+    display: flex;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.history-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}

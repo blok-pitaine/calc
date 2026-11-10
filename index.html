@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="application name" content="DeclaCalc">
+        <meta name="description" content="Simple declarative calculator">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>DeclaCalc</title>
+    </head>
+    <body>
+        <div id="calculator">
+            <div id="header">
+                    <button class="header-button" id="history-open">History</button>
+            </div>
+            <div id="display">
+                <input id="calculator-input" type="text" placeholder="...">
+                <div id="result"></div>
+            </div>   
+            <div id="input-panel">
+                <div id="engineer-panel">
+                    <button class="engineer-button" id="E">E</button>
+                    <button class="engineer-button" id="PI">Pi</button>
+                    
+                    <button class="engineer-button" id="abs">abs</button>
+                    <button class="engineer-button" id="sqrt">sqrt</button>
+                    <button class="engineer-button" id="round">round</button>
+                    <button class="engineer-button" id="random">random</button>
+
+                    <button class="engineer-button" id="pow">pow</button>
+                    <button class="engineer-button" id="exp">exp</button>
+                    <button class="engineer-button" id="floor">floor</button>
+                    <button class="engineer-button" id="log">log</button>
+
+                    <button class="engineer-button" id="sin">sin</button>
+                    <button class="engineer-button" id="sinh">sinh</button>
+                    <button class="engineer-button" id="asin">asin</button>
+                    <button class="engineer-button" id="asinh">asinh</button>
+
+                    <button class="engineer-button" id="cos">cos</button>
+                    <button class="engineer-button" id="cosh">cosh</button>
+                    <button class="engineer-button" id="acos">acos</button>
+                    <button class="engineer-button" id="acosh">acosh</button>
+                
+                    <button class="engineer-button" id="tan">tan</button>
+                    <button class="engineer-button" id="tanh">tanh</button>
+                    <button class="engineer-button" id="atan">atan</button>
+                    <button class="engineer-button" id="atanh">atanh</button>
+
+                    <button class="engineer-button" id="atan2">atan2</button>
+                    <button class="engineer-button" id="cbrt">cbrt</button>
+                    <button class="engineer-button" id="min">min</button>
+                    <button class="engineer-button" id="max">max</button>
+
+                    <button class="engineer-button" id="ceil">ceil</button>
+                    <button class="engineer-button" id="trunc">trunc</button>
+                    <button class="engineer-button" id="sign">sign</button>
+                    <button class="engineer-button" id="hypot">hypot</button>
+                    <button class="engineer-button" id="space">[space]</button>
+                </div>
+                <div id="base-panel">
+                    <button class="calculator-button" id="C">C</button>
+                    <button class="calculator-button" id="bracketstart">(</button>
+                    <button class="calculator-button" id="bracketend">)</button>
+                    <button class="calculator-button" id="remainder">%</button>
+                    <button class="calculator-button" id="division">/</button>
+
+                    <button class="calculator-button" id="seven">7</button>
+                    <button class="calculator-button" id="eight">8</button>
+                    <button class="calculator-button" id="nine">9</button>
+                    <button class="calculator-button" id="multiplication">*</button>
+                    <button class="calculator-button" id="exponentiation">^</button>
+
+                    <button class="calculator-button" id="four">4</button>
+                    <button class="calculator-button" id="five">5</button>
+                    <button class="calculator-button" id="six">6</button>
+                    <button class="calculator-button" id="minus">-</button>
+
+                    <button class="calculator-button" id="one">1</button>
+                    <button class="calculator-button" id="two">2</button>
+                    <button class="calculator-button" id="three">3</button>
+                    <button class="calculator-button" id="plus">+</button>
+
+                    <button class="calculator-button" id="zero">0</button>
+                    <button class="calculator-button" id="dot">.</button>
+                    <button class="calculator-button" id="backspace">X</button>
+                    <button class="calculator-button" id="calculate">=</button>
+                </div>
+            </div>
+            <div class="history-screen">
+                <h1 class="history-title">Expressions history</h1>
+                <div id="history-container"></div>
+            </div>
+        </div>
+    </body>
+    <script src="./scripts/parser.js"></script>
+    <script src="./scripts/input.js"></script>
+    <script src="./scripts/history.js"></script>
+</html>
