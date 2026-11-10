@@ -6,7 +6,6 @@ function calculate() {
     try {
         const result = evaluateExpression(expr);
         resultDiv.textContent = '=' + result;
-        addExprInHistory(expr, result)
     } catch (e) {
         resultDiv.textContent = '!: ' + e.message;
     }
